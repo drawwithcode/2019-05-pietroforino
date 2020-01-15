@@ -12,6 +12,7 @@ var blank, controls, tyson, septum, sunglasses, cigarette, mask, earrings;
 var naso, occhio;
 
 function preload() {
+  // load al the images
   blank = loadImage('assets/blank.png');
   controls = loadImage('assets/controls.png');
   tyson = loadImage('assets/tyson1.png');
@@ -20,7 +21,6 @@ function preload() {
   cigarette = loadImage('assets/cigarette.png');
   mask = loadImage('assets/mask.png');
   earrings = loadImage('assets/earrings.png')
-
 }
 
 function setup() {
@@ -38,20 +38,17 @@ function gotPoses(poses) {
     var nY = poses[0].pose.keypoints[0].position.y;
     var e1X = poses[0].pose.keypoints[1].position.x;
     var e1Y = poses[0].pose.keypoints[1].position.y;
-    var e2X = poses[0].pose.keypoints[2].position.x;
-    var e2Y = poses[0].pose.keypoints[2].position.y;
     noseX = lerp(noseX, nX, 0.5);
     noseY = lerp(noseY, nY, 0.5);
     eyelX = lerp(eyelX, e1X, 0.5);
     eyelY = lerp(eyelY, e1Y, 0.5);
-    eyerX = lerp(eyerX, e2X, 0.5);
-    eyerY = lerp(eyerY, e2Y, 0.5);
   }
 }
 
 function draw() {
   background('tomato')
 
+  // set the initial value of the images
   naso = blank;
   occhio = blank;
 
@@ -73,12 +70,12 @@ function draw() {
     screenMode = 'tyson'
   }
 
+  image(video, windowWidth / 2 - 320, windowHeight / 3 - 280); // print the video capture
+  image(controls, windowWidth / 2 - 200, windowHeight / 3 * 2 - 50, 400, 300) // show the instructions
 
-
-  image(video, windowWidth / 2 - 320, windowHeight / 3 - 280);
-  image(controls, windowWidth / 2 - 200, windowHeight / 3 * 2 - 50, 400, 300)
   translate(windowWidth / 2 - 320, windowHeight / 2 - 630)
 
+  // print the tips
   push()
     translate(windowWidth / 5 * 2, windowHeight / 4 + 50)
     textSize(windowWidth/50)
@@ -104,6 +101,7 @@ function draw() {
   pop()
 }
 
+// take a screenshot when press TAB key
 function keyPressed() {
   if (keyCode === TAB) {
     saveCanvas(mycanvas,screenMode,"png");

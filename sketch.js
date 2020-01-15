@@ -6,8 +6,6 @@ var noseX = 0;
 var noseY = 0;
 var eyelX = 0;
 var eyelY = 0;
-var eyerX = 0;
-var eyerY = 0;
 var blank, controls, tyson, septum, sunglasses, cigarette, mask, earrings;
 var naso, occhio;
 

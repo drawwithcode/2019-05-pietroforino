@@ -80,7 +80,24 @@ function draw() {
   translate(windowWidth / 2 - 320, windowHeight / 2 - 630)
 
   push()
-    translate(0, windowHeight / 2 - 210)
+    translate(windowWidth / 5 * 2, windowHeight / 4 + 50)
+    textSize(windowWidth/50)
+    fill(255)
+    textFont('Rock Salt')
+    textAlign(LEFT)
+    text('use the arrows as\nin the instructions\nto dress up',0,0)
+  pop()
+  push()
+    translate(-windowWidth / 20, windowHeight/1.2)
+    textSize(windowWidth/50)
+    fill(255)
+    textFont('Rock Salt')
+    textAlign(RIGHT)
+    text('click and hold the\nleft, up or right\narrow and click\nTAB to take a\nscreenshot ',10,10)
+  pop()
+
+  push()
+    translate(0, windowHeight / 2 - 240)
     imageMode(CENTER)
     image(naso, noseX, noseY, 300, 225)
     image(occhio, eyelX, eyelY, 300, 225)
@@ -88,7 +105,7 @@ function draw() {
 }
 
 function keyPressed() {
-  if (keyCode === DOWN_ARROW) {
+  if (keyCode === TAB) {
     saveCanvas(mycanvas,screenMode,"png");
   }
 }
